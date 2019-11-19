@@ -2,6 +2,7 @@
 vim settings
 
 brew reinstall vim
+
 vim —version | grep lua
 
 ~/.vimrc
