@@ -81,7 +81,9 @@ let g:NERDTreeIgnore=['\.DS_Store$', '\.swp$', '\~$', '\.so']
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " NERDTreeだけが残る場合はvim終了
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" 隠しファイルを表示
+let NERDTreeShowHidden = 1
 
 " *******************************************************
 " vim-closetag
@@ -120,11 +122,13 @@ set laststatus=2 " ステータスラインを常に表示
 set showmode " 現在のモードを表示
 set showcmd " 打ったコマンドをステータスラインの下に表示
 set ruler " ステータスラインの右側にカーソルの位置を表示する
+
 "----------------------------------------------------------
 " コマンドモード
 "----------------------------------------------------------
 set wildmenu " コマンドモードの補完
 set history=100 " 保存するコマンド履歴の数
+
 "----------------------------------------------------------
 " タブ・インデント
 "----------------------------------------------------------
@@ -134,6 +138,7 @@ set softtabstop=2 " 連続した空白に対してタブキーやバックスペ
 set autoindent " 改行時に前の行のインデントを継続する
 set smartindent " 改行時に前の行の構文をチェックし次の行のインデントを増減する
 set shiftwidth=2 " smartindentで増減する幅
+
 "----------------------------------------------------------
 " クリップボードからのペースト
 "----------------------------------------------------------
@@ -247,11 +252,11 @@ if dein#load_state(s:dein_dir)
  " tomlファイル（使用するプラグインのリストが記述されているファイル）の場所を指定
  let g:rc_dir = expand('~/.vim/dein') "<- dein.toml dein_lazy.toml を読み込むディレクトリ ##########
  let s:toml = g:rc_dir . '/dein.toml'
- " let s:lazy_toml = g:rc_dir . '/dein_lazy.toml' "<- dein_lazy.toml を使う場合はコメント解除 ##########
+ let s:lazy_toml = g:rc_dir . '/dein_lazy.toml' "<- dein_lazy.toml を使う場合はコメント解除 ##########
  
  " tomlファイルを読み込む
  call dein#load_toml(s:toml, {'lazy': 0})
- " call dein#load_toml(s:lazy_toml, {'lazy': 1}) "<- dein_lazy.toml を使う場合はコメント解除 ##########
+ call dein#load_toml(s:lazy_toml, {'lazy': 1}) "<- dein_lazy.toml を使う場合はコメント解除 ##########
 
  " 設定の終了
  call dein#end()
@@ -262,5 +267,8 @@ endif
 if dein#check_install()
  call dein#install()
 endif
+
+" 選択部分の色チェン
+autocmd ColorScheme * highlight Visual ctermfg=0 ctermbg=7 guifg=black guibg=LightGrey
 
 syntax enable
