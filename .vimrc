@@ -153,6 +153,7 @@ if &term =~ "xterm"
     endfunction
     inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
 endif
+
 "----------------------------------------------------------
 " CtrlP
 "----------------------------------------------------------
@@ -168,6 +169,7 @@ if executable('ag')
   let g:ctrlp_use_caching=0 " CtrlPのキャッシュを使わない
   let g:ctrlp_user_command='ag %s -i --hidden -g ""' " 「ag」の検索設定
 endif
+
 "----------------------------------------------------------
 " カーソル
 "----------------------------------------------------------
@@ -270,5 +272,7 @@ endif
 
 " 選択部分の色チェン
 autocmd ColorScheme * highlight Visual ctermfg=0 ctermbg=7 guifg=black guibg=LightGrey
+" 括弧の色チェン
+autocmd ColorScheme * highlight MatchParen ctermfg=195 ctermbg=30 guifg=#c6c8d1 guibg=#5b7881
 
 syntax enable
