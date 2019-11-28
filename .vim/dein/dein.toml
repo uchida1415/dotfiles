@@ -11,6 +11,9 @@ repo = 'Shougo/neosnippet-snippets'
 repo = 'Shougo/neocomplete.vim'
 
 [[plugins]]
+repo = 'Shougo/neco-syntax'
+
+[[plugins]]
 repo = 'ujihisa/neco-look'
 
 [[plugins]]

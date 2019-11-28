@@ -85,6 +85,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " 隠しファイルを表示
 let NERDTreeShowHidden = 1
 
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
 " *******************************************************
 " vim-closetag
 " *******************************************************
@@ -220,7 +222,6 @@ nnoremap sq :<C-u>q<CR>
 nnoremap sQ :<C-u>bd<CR>
 nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
 nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
 "jキーを二度押しでESCキー
 inoremap <silent> jj <Esc>
 inoremap <silent> っｊ <ESC>
