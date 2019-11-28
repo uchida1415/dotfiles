@@ -87,6 +87,35 @@ let NERDTreeShowHidden = 1
 
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
+
+" *******************************************************
+" nerdcommenter
+" *******************************************************
+let g:ft = ''
+function! NERDCommenter_before()
+  if &ft == 'vue'
+    let g:ft = 'vue'
+    let stack = synstack(line('.'), col('.'))
+    if len(stack) > 0
+      let syn = synIDattr((stack)[0], 'name')
+      if len(syn) > 0
+        exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
+      endif
+    endif
+  endif
+endfunction
+function! NERDCommenter_after()
+  if g:ft == 'vue'
+    setf vue
+    let g:ft = ''
+  endif
+endfunction
+
+" コメント記号の後ろにスペース
+let NERDSpaceDelims = 1
+
+filetype plugin on
+
 " *******************************************************
 " vim-closetag
 " *******************************************************
@@ -180,6 +209,8 @@ set number " 行番号を表示
 set cursorline " カーソルラインをハイライト
 set tags+=~/.tags
 
+" マップリーダー再マッピング
+let mapleader = ','
 " バックアップファイルを作らない
 set nobackup
 " スワップファイルを作らない

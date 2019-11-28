@@ -20,6 +20,9 @@ repo = 'ujihisa/neco-look'
 repo = 'scrooloose/nerdtree'
 
 [[plugins]]
+repo = 'scrooloose/nerdcommenter'
+
+[[plugins]]
 repo = 'Yggdroot/indentLine'
 
 [[plugins]]
