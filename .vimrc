@@ -274,5 +274,8 @@ endif
 autocmd ColorScheme * highlight Visual ctermfg=0 ctermbg=7 guifg=black guibg=LightGrey
 " 括弧の色チェン
 autocmd ColorScheme * highlight MatchParen ctermfg=195 ctermbg=30 guifg=#c6c8d1 guibg=#5b7881
+" タブページの色チェン
+autocmd ColorScheme * highlight TabLine ctermfg=252 ctermbg=234 guifg=#9a9ca5 guibg=#161821
+autocmd ColorScheme * highlight TabLineSel ctermfg=0 ctermbg=7 guifg=black guibg=LightGrey
 
 syntax enable
