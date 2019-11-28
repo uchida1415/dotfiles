@@ -23,6 +23,9 @@ repo = 'Yggdroot/indentLine'
 repo = 'tpope/vim-surround'
 
 [[plugins]]
+repo = 'cohama/lexima.vim'
+
+[[plugins]]
 repo = 'alvan/vim-closetag'
 
 [[plugins]]
