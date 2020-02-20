@@ -1,72 +1,4 @@
 " *******************************************************
-" neosnippet
-" *******************************************************
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" For conceal markers.
-if has('conceal')
-    set conceallevel=2 concealcursor=niv
-endif
-
-" *******************************************************
-" neocomplete
-" *******************************************************
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-    return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" *******************************************************
 " NERDTree
 " *******************************************************
 " ブックマーク初期表示
@@ -115,36 +47,6 @@ endfunction
 let NERDSpaceDelims = 1
 
 filetype plugin on
-
-" *******************************************************
-" vim-closetag
-" *******************************************************
-let g:closetag_filenames = '*.html,*.xhtml,*.php,*.vue'
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
-let g:closetag_filetypes = 'html,xhtml,php,vue'
-let g:closetag_xhtml_filetypes = 'xhtml,jsx'
-
-let g:closetag_emptyTags_caseSensitive = 1
-let g:closetag_shortcut = '>'
-let g:closetag_close_shortcut = '<leader>>'
-
-augroup MyXML
-  autocmd!
-  autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
-  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
-  autocmd Filetype php inoremap <buffer> </ </<C-x><C-o>
-  autocmd Filetype vue inoremap <buffer> </ </<C-x><C-o>
-augroup END
-
-" *******************************************************
-" ale
-" *******************************************************
-let g:ale_fixers = {
-\  '*': ['remove_trailing_lines', 'trim_whitespace'],
-\  'javascript': ['eslint'],
-\}
-let g:ale_sign_column_always = 1
-let g:ale_set_highlights = 0
 
 "----------------------------------------------------------
 " ステータスライン

@@ -1,41 +1,12 @@
 [[plugins]]
-repo = 'Shougo/dein.vim'
-
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
-[[plugins]]
-repo = 'Shougo/neocomplete.vim'
-
-[[plugins]]
-repo = 'Shougo/neco-syntax'
-
-[[plugins]]
-repo = 'ujihisa/neco-look'
-
-[[plugins]]
 repo = 'scrooloose/nerdtree'
 
 [[plugins]]
 repo = 'scrooloose/nerdcommenter'
 
 [[plugins]]
-repo = 'Yggdroot/indentLine'
-
-[[plugins]]
-repo = 'tpope/vim-surround'
-
-[[plugins]]
-repo = 'cohama/lexima.vim'
-
-[[plugins]]
-repo = 'alvan/vim-closetag'
-
-[[plugins]]
-repo = 'sheerun/vim-polyglot'
-
-[[plugins]]
-repo = 'w0rp/ale'
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+on_i = 1
+merged = '0'
+hook_source = 'call coil398#init#coc#hook_source()'
