@@ -5,8 +5,13 @@ repo = 'scrooloose/nerdtree'
 repo = 'scrooloose/nerdcommenter'
 
 [[plugins]]
+repo = 'cohama/lexima.vim'
+
+[[plugins]]
+repo = 'sheerun/vim-polyglot'
+
+[[plugins]]
 repo = 'neoclide/coc.nvim'
 rev = 'release'
 on_i = 1
 merged = '0'
-hook_source = 'call coil398#init#coc#hook_source()'
