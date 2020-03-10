@@ -158,6 +158,9 @@ nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 "jキーを二度押しでESCキー
 inoremap <silent> jj <Esc>
 inoremap <silent> っｊ <ESC>
+"インサートモードでもカーソル移動可能に
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
 
 " deinがインストールされるディレクトリの指定
 let s:dein_dir = expand('~/.cache/dein') "<- dein によってプラグインがインストールされるディレクトリ ##########
