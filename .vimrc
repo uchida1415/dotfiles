@@ -204,5 +204,23 @@ autocmd ColorScheme * highlight MatchParen ctermfg=195 ctermbg=30 guifg=#c6c8d1 
 " タブページの色チェン
 autocmd ColorScheme * highlight TabLine ctermfg=252 ctermbg=234 guifg=#9a9ca5 guibg=#161821
 autocmd ColorScheme * highlight TabLineSel ctermfg=0 ctermbg=7 guifg=black guibg=LightGrey
+" vim-polyglot用の設定
+autocmd FileType vue syntax sync fromstart
+
+"カッコ補完: { ( [
+inoremap { {}<Left>
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap () ()
+inoremap ( ()<ESC>i
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
+inoremap [ []<ESC>i
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+
+"補完: ' " <
+inoremap '' ''
+inoremap ' ''<ESC>i
+inoremap "" ""
+inoremap " ""<ESC>i
+inoremap < <><ESC>i
 
 syntax enable
